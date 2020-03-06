@@ -1,0 +1,23 @@
+{
+  "name": "data-layer",
+  "version": "1.0.0",
+  "description": "Capa de datos de la aplicacion.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AMDVAT/Data-Layer.git"
+  },
+  "author": "Carlos Cordon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AMDVAT/Data-Layer/issues"
+  },
+  "homepage": "https://github.com/AMDVAT/Data-Layer#readme",
+  "devDependencies": {
+    "tslint": "^6.0.0",
+    "typescript": "^3.8.3"
+  }
+}
