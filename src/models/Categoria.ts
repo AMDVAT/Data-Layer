@@ -1,4 +1,4 @@
-import { Column, Model, Table, CreatedAt, UpdatedAt } from 'sequelize-typescript';
+import { Column, Model, Table, CreatedAt, UpdatedAt, ForeignKey } from 'sequelize-typescript';
 
 @Table
 export class Categoria extends Model<Categoria> {
@@ -8,6 +8,10 @@ export class Categoria extends Model<Categoria> {
 
     @Column
     nombre: string;
+
+    @ForeignKey(() => Categoria)
+    @Column
+    Categoria_id_categoria!: number;
 
     @CreatedAt
     @Column
