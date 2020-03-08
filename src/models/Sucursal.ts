@@ -1,9 +1,11 @@
-import { Column, Model, Table, CreatedAt, UpdatedAt } from 'sequelize-typescript';
+import { Column, Model, Table, CreatedAt, UpdatedAt, PrimaryKey, AutoIncrement } from 'sequelize-typescript';
 
 @Table
 export class Sucursal extends Model<Sucursal> {
 
     @Column
+    @PrimaryKey
+    @AutoIncrement
     id_sucursal: number;
 
     @Column

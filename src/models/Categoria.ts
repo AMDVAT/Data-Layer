@@ -1,9 +1,11 @@
-import { Column, Model, Table, CreatedAt, UpdatedAt, ForeignKey } from 'sequelize-typescript';
+import { Column, Model, Table, CreatedAt, UpdatedAt, ForeignKey, PrimaryKey, AutoIncrement } from 'sequelize-typescript';
 
 @Table
 export class Categoria extends Model<Categoria> {
 
     @Column
+    @PrimaryKey
+    @AutoIncrement
     id_categoria: number;
 
     @Column
