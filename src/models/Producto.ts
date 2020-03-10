@@ -22,4 +22,11 @@ export class Producto extends Model<Producto> {
     @Column
     Categoria_id_categoria!: number;
 
+    @CreatedAt
+    @Column
+    createdAt!: Date;
+
+    @UpdatedAt
+    @Column
+    updatedAt!: Date;
 }
