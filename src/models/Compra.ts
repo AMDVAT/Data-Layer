@@ -1,12 +1,13 @@
-import { Column, Model, Table, CreatedAt, UpdatedAt, ForeignKey, PrimaryKey, AutoIncrement } from 'sequelize-typescript';
+import { Column, Model, Table, ForeignKey, PrimaryKey, AutoIncrement, BelongsTo, HasMany } from 'sequelize-typescript';
 import { Usuario } from "./Usuario";
+import { DetalleCompra } from "./DetalleCompra";
 
-@Table
+@Table({ modelName: 'compra'})
 export class Compra extends Model<Compra> {
 
-    @Column
     @PrimaryKey
     @AutoIncrement
+    @Column
     id_compra: number;
 
     @Column
@@ -14,14 +15,11 @@ export class Compra extends Model<Compra> {
 
     @ForeignKey(() => Usuario)
     @Column
-    USUARIO_id_usuario!: number;
+    usuario_id_usuario!: number;
 
-    @CreatedAt
-    @Column
-    createdAt!: Date;
+    @BelongsTo(() => Usuario)
+    usuario: Usuario;
 
-    @UpdatedAt
-    @Column
-    updatedAt!: Date;
-
+    @HasMany(() => DetalleCompra)
+    detalleCompra: DetalleCompra[];
 }

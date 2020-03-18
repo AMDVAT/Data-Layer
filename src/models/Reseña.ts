@@ -1,13 +1,13 @@
-import { Column, Model, Table, CreatedAt, UpdatedAt, ForeignKey, PrimaryKey, AutoIncrement } from 'sequelize-typescript';
+import { Column, Model, Table, ForeignKey, PrimaryKey, AutoIncrement, BelongsTo } from 'sequelize-typescript';
 import { Usuario } from "./Usuario";
 import { Producto } from "./Producto";
 
-@Table
+@Table({ modelName: 'reseña' })
 export class Reseña extends Model<Reseña> {
 
-    @Column
     @PrimaryKey
     @AutoIncrement
+    @Column
     id_reseña: number;
 
     @Column
@@ -18,18 +18,16 @@ export class Reseña extends Model<Reseña> {
 
     @ForeignKey(() => Usuario)
     @Column
-    USUARIO_id_usuario!: number;
+    usuario_id_usuario!: number;
 
     @ForeignKey(() => Producto)
     @Column
-    PRODUCTO_id_producto!: number;
+    producto_id_producto!: number;
 
-    @CreatedAt
-    @Column
-    createdAt!: Date;
+    @BelongsTo(() => Usuario)
+    usuario: Usuario;
 
-    @UpdatedAt
-    @Column
-    updatedAt!: Date;
+    @BelongsTo(() => Producto)
+    producto: Producto;
 
 }

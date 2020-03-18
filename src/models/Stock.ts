@@ -1,32 +1,30 @@
-import { Column, Model, Table, CreatedAt, UpdatedAt, ForeignKey, PrimaryKey, AutoIncrement } from 'sequelize-typescript';
+import { Column, Model, Table, ForeignKey, PrimaryKey, BelongsTo, HasMany } from 'sequelize-typescript';
 import { Sucursal } from "./Sucursal";
 import { Producto } from "./Producto";
+import { DetalleCompra } from "./DetalleCompra";
 
-@Table
+@Table({ modelName: 'stock' })
 export class Stock extends Model<Stock> {
-
-    @Column
-    @PrimaryKey
-    @AutoIncrement
-    id_stock: number;
 
     @Column
     cantidad: number;
 
+    @PrimaryKey
     @ForeignKey(() => Sucursal)
     @Column
-    SUCURSAL_id_sucursal!: number;
+    sucursal_id_sucursal: number;
 
+    @PrimaryKey
     @ForeignKey(() => Producto)
     @Column
-    PRODUCTO_id_producto!: number;
+    producto_id_producto: number;
 
-    @CreatedAt
-    @Column
-    createdAt!: Date;
+    @BelongsTo(() => Sucursal)
+    sucursal: Sucursal;
 
-    @UpdatedAt
-    @Column
-    updatedAt!: Date;
+    @BelongsTo(() => Producto)
+    producto: Producto;
 
+    @HasMany(() => DetalleCompra)
+    detalleCompra: DetalleCompra[];
 }

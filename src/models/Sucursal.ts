@@ -1,11 +1,12 @@
-import { Column, Model, Table, CreatedAt, UpdatedAt, PrimaryKey, AutoIncrement } from 'sequelize-typescript';
+import { Column, Model, Table, PrimaryKey, AutoIncrement, HasMany } from 'sequelize-typescript';
+import {Stock} from "./Stock";
 
-@Table
+@Table({ modelName: 'sucursal' })
 export class Sucursal extends Model<Sucursal> {
 
-    @Column
     @PrimaryKey
     @AutoIncrement
+    @Column
     id_sucursal: number;
 
     @Column
@@ -17,11 +18,6 @@ export class Sucursal extends Model<Sucursal> {
     @Column
     numero: number;
 
-    @CreatedAt
-    @Column
-    createdAt!: Date;
-
-    @UpdatedAt
-    @Column
-    updatedAt!: Date;
+    @HasMany(() => Stock)
+    stock: Stock[];
 }

@@ -1,5 +1,7 @@
-import { Column, Model, Table, ForeignKey, PrimaryKey, AutoIncrement, BelongsTo } from 'sequelize-typescript';
+import { Column, Model, Table, ForeignKey, PrimaryKey, AutoIncrement, BelongsTo, HasMany } from 'sequelize-typescript';
 import {TipoUsuario} from "./TipoUsuario";
+import {Reseña} from "./Reseña";
+import {Compra} from "./Compra";
 
 @Table({ modelName: 'usuario' })
 export class Usuario extends Model<Usuario> {
@@ -33,4 +35,10 @@ export class Usuario extends Model<Usuario> {
 
     @BelongsTo(() => TipoUsuario)
     tipoUsuario: TipoUsuario;
+
+    @HasMany(() => Reseña)
+    reseña: Reseña[];
+
+    @HasMany(() => Compra)
+    compra: Compra[];
 }

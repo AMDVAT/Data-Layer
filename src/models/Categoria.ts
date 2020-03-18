@@ -1,11 +1,11 @@
-import { Column, Model, Table, CreatedAt, UpdatedAt, ForeignKey, PrimaryKey, AutoIncrement } from 'sequelize-typescript';
+import { Column, Model, Table, ForeignKey, PrimaryKey, AutoIncrement, HasMany, BelongsTo } from 'sequelize-typescript';
 
-@Table
+@Table({ modelName: 'categoria'})
 export class Categoria extends Model<Categoria> {
 
-    @Column
     @PrimaryKey
     @AutoIncrement
+    @Column
     id_categoria: number;
 
     @Column
@@ -15,11 +15,9 @@ export class Categoria extends Model<Categoria> {
     @Column
     Categoria_id_categoria!: number;
 
-    @CreatedAt
-    @Column
-    createdAt!: Date;
+    @HasMany(() => Categoria)
+    categorias: Categoria[];
 
-    @UpdatedAt
-    @Column
-    updatedAt!: Date;
+    @BelongsTo(() => Categoria)
+    categoria: Categoria;
 }

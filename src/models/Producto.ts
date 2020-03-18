@@ -1,12 +1,14 @@
-import { Column, Model, Table, CreatedAt, UpdatedAt, ForeignKey, PrimaryKey, AutoIncrement } from 'sequelize-typescript';
+import { Column, Model, Table, ForeignKey, PrimaryKey, AutoIncrement, BelongsTo, HasMany } from 'sequelize-typescript';
 import {Categoria} from "./Categoria";
+import {Reseña} from "./Reseña";
+import {Stock} from "./Stock";
 
-@Table
+@Table({ modelName: 'producto' })
 export class Producto extends Model<Producto> {
 
-    @Column
     @PrimaryKey
     @AutoIncrement
+    @Column
     id_producto: number;
 
     @Column
@@ -18,15 +20,22 @@ export class Producto extends Model<Producto> {
     @Column
     precio: number;
 
+    @Column
+    ofertado: number;
+
+    @Column
+    precio_oferta: number;
+
     @ForeignKey(() => Categoria)
     @Column
-    Categoria_id_categoria!: number;
+    categoria_id_categoria!: number;
 
-    @CreatedAt
-    @Column
-    createdAt!: Date;
+    @BelongsTo(() => Categoria)
+    categoria: Categoria;
 
-    @UpdatedAt
-    @Column
-    updatedAt!: Date;
+    @HasMany(() => Reseña)
+    reseña: Reseña[];
+
+    @HasMany(() => Stock)
+    stock: Stock[];
 }

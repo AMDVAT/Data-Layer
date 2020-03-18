@@ -10,14 +10,12 @@ export class Sequelize {
 
     public constructor(host: string,
         port: number,
-        dialect: string,
         database: string,
         username: string,
         password: string) {
         this.dialect = 'mysql';
         this.host = host;
         this.port = port;
-        this.dialect = dialect;
         this.database = database;
         this.username = username;
         this.password = password;
@@ -25,16 +23,23 @@ export class Sequelize {
 
     private definicionDB(): db {
         return new db({
+            logging: true,
             host: this.host,
             port: this.port,
             database: this.database,
             username: this.username,
             password: this.password,
-            models: [__dirname + '/models']
+            dialect: 'mysql',
+            models: [__dirname + '/models'],
+            define: {
+                freezeTableName: true,
+                timestamps: false
+            },
+            sync: { force: true, alter: false }
         });
     }
 
     public conectarDB() {
-        return this.definicionDB().sync({ force: false });
+        return this.definicionDB().sync({ force: true, alter: false });
     }
 }
