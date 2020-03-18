@@ -18,11 +18,11 @@ export class Reseña extends Model<Reseña> {
 
     @ForeignKey(() => Usuario)
     @Column
-    usuario_id_usuario!: number;
+    usuario_id_usuario: number;
 
     @ForeignKey(() => Producto)
     @Column
-    producto_id_producto!: number;
+    producto_id_producto: number;
 
     @BelongsTo(() => Usuario)
     usuario: Usuario;

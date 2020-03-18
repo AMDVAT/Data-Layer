@@ -31,7 +31,7 @@ export class Usuario extends Model<Usuario> {
 
     @ForeignKey(() => TipoUsuario)
     @Column
-    tipo_usuario!: number;
+    tipo_usuario: number;
 
     @BelongsTo(() => TipoUsuario)
     tipoUsuario: TipoUsuario;

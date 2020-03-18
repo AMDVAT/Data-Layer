@@ -15,7 +15,7 @@ export class Compra extends Model<Compra> {
 
     @ForeignKey(() => Usuario)
     @Column
-    usuario_id_usuario!: number;
+    usuario_id_usuario: number;
 
     @BelongsTo(() => Usuario)
     usuario: Usuario;
