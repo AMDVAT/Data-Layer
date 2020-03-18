@@ -35,11 +35,11 @@ export class Sequelize {
                 freezeTableName: true,
                 timestamps: false
             },
-            sync: { force: true, alter: false }
+            sync: { force: false, alter: false }
         });
     }
 
     public conectarDB() {
-        return this.definicionDB().sync({ force: true, alter: false });
+        return this.definicionDB().sync({ force: false, alter: false });
     }
 }
