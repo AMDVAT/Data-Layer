@@ -24,10 +24,7 @@ export class Usuario extends Model<Usuario> {
     password: string;
 
     @Column
-    direccion: string;
-
-    @Column
-    telefono: number;
+    estado: number;
 
     @ForeignKey(() => TipoUsuario)
     @Column
