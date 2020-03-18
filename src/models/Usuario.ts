@@ -1,12 +1,12 @@
-import { Column, Model, Table, CreatedAt, UpdatedAt, ForeignKey, PrimaryKey, AutoIncrement } from 'sequelize-typescript';
+import { Column, Model, Table, ForeignKey, PrimaryKey, AutoIncrement, BelongsTo } from 'sequelize-typescript';
 import {TipoUsuario} from "./TipoUsuario";
 
-@Table
+@Table({ modelName: 'usuario' })
 export class Usuario extends Model<Usuario> {
 
-    @Column
     @PrimaryKey
     @AutoIncrement
+    @Column
     id_usuario: number;
 
     @Column
@@ -31,11 +31,6 @@ export class Usuario extends Model<Usuario> {
     @Column
     tipo_usuario!: number;
 
-    @CreatedAt
-    @Column
-    createdAt!: Date;
-
-    @UpdatedAt
-    @Column
-    updatedAt!: Date;
+    @BelongsTo(() => TipoUsuario)
+    tipoUsuario: TipoUsuario;
 }

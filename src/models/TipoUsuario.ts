@@ -1,21 +1,17 @@
-import { Column, Model, Table, CreatedAt, UpdatedAt, PrimaryKey, AutoIncrement } from 'sequelize-typescript';
+import { Column, Model, Table, PrimaryKey, AutoIncrement, HasMany } from 'sequelize-typescript';
+import { Usuario } from "./Usuario";
 
-@Table({ modelName: 'tipo_usuario'})
+@Table({ modelName: 'tipo_usuario' })
 export class TipoUsuario extends Model<TipoUsuario> {
 
-    @Column
     @PrimaryKey
     @AutoIncrement
-    id_tipoUsuario: number;
+    @Column
+    id_tipousuario: number;
 
     @Column
     nombre: string;
 
-    @CreatedAt
-    @Column
-    createdAt!: Date;
-
-    @UpdatedAt
-    @Column
-    updatedAt!: Date;
+    @HasMany(() => Usuario)
+    usuarios: Usuario[];
 }
