@@ -1,0 +1,33 @@
+{
+  "name": "data-layer",
+  "version": "1.0.0",
+  "description": "Capa de datos de la aplicacion.",
+  "main": "dist/Sequelize.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AMDVAT/Data-Layer.git"
+  },
+  "author": "Carlos Cordon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AMDVAT/Data-Layer/issues"
+  },
+  "homepage": "https://github.com/AMDVAT/Data-Layer#readme",
+  "devDependencies": {
+    "tslint": "^6.0.0",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "@types/bluebird": "^3.5.30",
+    "@types/node": "^13.9.1",
+    "@types/validator": "^12.0.1",
+    "mysql2": "^2.1.0",
+    "reflect-metadata": "^0.1.13",
+    "sequelize": "^5.21.5",
+    "sequelize-typescript": "^1.1.0"
+  }
+}
