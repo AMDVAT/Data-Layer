@@ -1,4 +1,5 @@
 import { Column, Model, Table, ForeignKey, PrimaryKey, AutoIncrement, HasMany, BelongsTo } from 'sequelize-typescript';
+import { Producto } from "./Producto";
 
 @Table({ modelName: 'categoria'})
 export class Categoria extends Model<Categoria> {
@@ -13,11 +14,14 @@ export class Categoria extends Model<Categoria> {
 
     @ForeignKey(() => Categoria)
     @Column
-    Categoria_id_categoria!: number;
+    categoria_id_categoria!: number;
 
     @HasMany(() => Categoria)
     categorias: Categoria[];
 
     @BelongsTo(() => Categoria)
     categoria: Categoria;
+
+    @HasMany(() => Producto)
+    productos: Producto[];
 }

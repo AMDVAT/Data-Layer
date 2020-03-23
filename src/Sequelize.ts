@@ -1,3 +1,4 @@
+import { Op } from 'sequelize';
 import { Sequelize as db } from 'sequelize-typescript';
 
 export class Sequelize {
@@ -23,7 +24,7 @@ export class Sequelize {
 
     private definicionDB(): db {
         return new db({
-            logging: true,
+            logging: false,
             host: this.host,
             port: this.port,
             database: this.database,
@@ -31,6 +32,7 @@ export class Sequelize {
             password: this.password,
             dialect: 'mysql',
             models: [__dirname + '/models'],
+            operatorsAliases: Op,
             define: {
                 freezeTableName: true,
                 timestamps: false

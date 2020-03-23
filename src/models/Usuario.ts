@@ -1,5 +1,6 @@
 import { Column, Model, Table, ForeignKey, PrimaryKey, AutoIncrement, BelongsTo, HasMany } from 'sequelize-typescript';
 import {TipoUsuario} from "./TipoUsuario";
+import {EstadoUsuario} from "./EstadoUsuario";
 import {Reseña} from "./Reseña";
 import {Compra} from "./Compra";
 
@@ -23,15 +24,19 @@ export class Usuario extends Model<Usuario> {
     @Column
     password: string;
 
-    @Column
-    estado: number;
-
     @ForeignKey(() => TipoUsuario)
     @Column
     tipo_usuario: number;
 
     @BelongsTo(() => TipoUsuario)
     tipoUsuario: TipoUsuario;
+
+    @ForeignKey(() => EstadoUsuario)
+    @Column
+    estado: number;
+
+    @BelongsTo(() => EstadoUsuario)
+    estadoUsuario: EstadoUsuario;
 
     @HasMany(() => Reseña)
     reseña: Reseña[];

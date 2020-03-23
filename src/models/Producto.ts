@@ -21,14 +21,20 @@ export class Producto extends Model<Producto> {
     precio: number;
 
     @Column
-    ofertado: number;
+    estado: number;
 
     @Column
     precio_oferta: number;
 
+    @Column
+    calificacion: number;
+
+    @Column
+    foto: string;
+
     @ForeignKey(() => Categoria)
     @Column
-    categoria_id_categoria: number;
+    id_categoria: number;
 
     @BelongsTo(() => Categoria)
     categoria: Categoria;
