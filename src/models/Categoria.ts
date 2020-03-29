@@ -12,6 +12,9 @@ export class Categoria extends Model<Categoria> {
     @Column
     nombre: string;
 
+    @Column
+    descripcion: string;
+
     @ForeignKey(() => Categoria)
     @Column
     categoria_id_categoria!: number;
