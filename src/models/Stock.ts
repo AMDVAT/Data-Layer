@@ -6,19 +6,21 @@ import { DetalleCompra } from "./DetalleCompra";
 @Table({ modelName: 'stock' })
 export class Stock extends Model<Stock> {
 
+    // Columnas
     @Column
     cantidad: number;
 
     @PrimaryKey
     @ForeignKey(() => Sucursal)
-    @Column
-    sucursal_id_sucursal: number;
+    @Column({ field: 'id_sucursal' })
+    idSucursal: number;
 
     @PrimaryKey
     @ForeignKey(() => Producto)
-    @Column
-    producto_id_producto: number;
+    @Column({ field: 'id_producto' })
+    idProducto: number;
 
+    // Relaciones
     @BelongsTo(() => Sucursal)
     sucursal: Sucursal;
 

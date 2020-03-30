@@ -4,10 +4,11 @@ import {Stock} from "./Stock";
 @Table({ modelName: 'sucursal' })
 export class Sucursal extends Model<Sucursal> {
 
+    // Columnas
     @PrimaryKey
     @AutoIncrement
-    @Column
-    id_sucursal: number;
+    @Column({ field: 'id_sucursal' })
+    idSucursal: number;
 
     @Column
     nombre: string;
@@ -18,6 +19,7 @@ export class Sucursal extends Model<Sucursal> {
     @Column
     numero: number;
 
+    // Relaciones
     @HasMany(() => Stock)
     stock: Stock[];
 }
