@@ -1,7 +1,8 @@
 import { Column, Model, Table, ForeignKey, PrimaryKey, AutoIncrement, BelongsTo, HasMany } from 'sequelize-typescript';
-import {Categoria} from "./Categoria";
-import {Reseña} from "./Reseña";
-import {Stock} from "./Stock";
+import { Categoria } from "./Categoria";
+import { Reseña } from "./Reseña";
+import { Stock } from "./Stock";
+import { Busqueda } from "./Busqueda";
 
 @Table({ modelName: 'producto' })
 export class Producto extends Model<Producto> {
@@ -44,4 +45,7 @@ export class Producto extends Model<Producto> {
 
     @HasMany(() => Stock)
     stock: Stock[];
+
+    @HasMany(() => Busqueda)
+    busqueda: Busqueda[];
 }
