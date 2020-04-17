@@ -2,16 +2,19 @@ import { Column, Model, Table, ForeignKey, PrimaryKey, AutoIncrement, BelongsTo 
 import { Usuario } from "./Usuario";
 import { Producto } from "./Producto";
 
-@Table({ modelName: 'busqueda' })
-export class Busqueda extends Model<Busqueda> {
+@Table({ modelName: 'suscripcion' })
+export class Suscripcion extends Model<Suscripcion> {
 
     @PrimaryKey
     @AutoIncrement
-    @Column({ field: 'id_busqueda' })
-    idBusqueda: number;
+    @Column({ field: 'id_suscripcion' })
+    idSuscripcion: number;
 
     @Column
     fecha: Date;
+
+    @Column
+    id_estado: number;
 
     @ForeignKey(() => Usuario)
     @Column({ field: 'id_usuario' })

@@ -4,6 +4,7 @@ import { EstadoUsuario } from "./EstadoUsuario";
 import { Reseña } from "./Reseña";
 import { Compra } from "./Compra";
 import { Busqueda } from "./Busqueda";
+import { Suscripcion } from "./Suscripcion";
 
 @Table({ modelName: 'usuario' })
 export class Usuario extends Model<Usuario> {
@@ -47,4 +48,7 @@ export class Usuario extends Model<Usuario> {
 
     @HasMany(() => Busqueda)
     busqueda: Busqueda[];
+
+    @HasMany(() => Suscripcion)
+    suscripcion: Suscripcion[];
 }
