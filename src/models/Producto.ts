@@ -42,7 +42,7 @@ export class Producto extends Model<Producto> {
     categoria: Categoria;
 
     @HasMany(() => Reseña)
-    reseña: Reseña[];
+    resena: Reseña[];
 
     @HasMany(() => Stock)
     stock: Stock[];

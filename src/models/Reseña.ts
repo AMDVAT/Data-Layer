@@ -2,13 +2,13 @@ import { Column, Model, Table, ForeignKey, PrimaryKey, AutoIncrement, BelongsTo 
 import { Usuario } from "./Usuario";
 import { Producto } from "./Producto";
 
-@Table({ modelName: 'reseña' })
+@Table({ modelName: 'resena' })
 export class Reseña extends Model<Reseña> {
 
     @PrimaryKey
     @AutoIncrement
     @Column
-    id_reseña: number;
+    id_resena: number;
 
     @Column
     comentario: string;
@@ -18,11 +18,11 @@ export class Reseña extends Model<Reseña> {
 
     @ForeignKey(() => Usuario)
     @Column
-    usuario_id_usuario: number;
+    id_usuario: number;
 
     @ForeignKey(() => Producto)
     @Column
-    producto_id_producto: number;
+    id_producto: number;
 
     @BelongsTo(() => Usuario)
     usuario: Usuario;

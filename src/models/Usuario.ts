@@ -41,7 +41,7 @@ export class Usuario extends Model<Usuario> {
     estadoUsuario: EstadoUsuario;
 
     @HasMany(() => Reseña)
-    reseña: Reseña[];
+    resena: Reseña[];
 
     @HasMany(() => Compra)
     compra: Compra[];
