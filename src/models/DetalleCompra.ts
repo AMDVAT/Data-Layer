@@ -8,19 +8,22 @@ export class DetalleCompra extends Model<DetalleCompra> {
     @PrimaryKey
     @AutoIncrement
     @Column
-    id_detalle_compra: number;
+    id_detallecompra: number;
+
+    @Column
+    cantidad: number;
 
     @ForeignKey(() => Compra)
     @Column
-    compra_id_compra: number;
+    id_compra: number;
 
     @ForeignKey(() => Stock)
     @Column
-    stock_id_sucursal: number;
+    id_sucursal: number;
 
     @ForeignKey(() => Stock)
     @Column
-    stock_id_producto: number;
+    id_producto: number;
 
     @BelongsTo(() => Compra)
     compra: Compra;
